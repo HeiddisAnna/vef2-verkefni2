@@ -10,7 +10,7 @@ app.set('view engine', 'ejs');
 
 app.use(express.static(path.join(__dirname, 'public')));
 
-/* todo aðrar stillingar á express appi */
+/* todo aðrar stillingar á express appi Halló */
 
 function notFoundHandler(req, res, next) { // eslint-disable-line
   res.status(404).render('error', { title: '404', error: '404 fannst ekki' });
