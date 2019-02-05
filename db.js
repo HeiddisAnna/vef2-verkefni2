@@ -7,8 +7,8 @@ async function saveToDb(data) {
 
   await client.connect();
 
-  const query = 'INSERT INTO applications(name, email, ssn, amount) VALUES($1, $2, $3, $4)';
-  const values = [data.name, data.email, data.ssn, data.amount];
+  const query = 'INSERT INTO applications(name, email, phone, text, job, processed) VALUES($1, $2, $3, $4, $5, $6)';
+  const values = [data.name, data.email, data.phone, data.text, data.job, data.processed];
 
   try {
     await client.query(query, values);
@@ -21,11 +21,13 @@ async function saveToDb(data) {
 }
 
 async function fetchData() {
+  console.log('inni í fetchData');
   const client = new Client({ connectionString });
   await client.connect();
+  
 
   try {
-    const result = await client.query('SELECT * FROM orders');
+    const result = await client.query('SELECT * FROM applications');
 
     const { rows } = result;
     return rows;

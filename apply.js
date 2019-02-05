@@ -4,7 +4,7 @@ const { check, validationResult } = require('express-validator/check');
 const { sanitize } = require('express-validator/filter');
 
 // const { catchErrors } = require('./utils');
-const { saveToDb } = require('./db');
+const { saveToDb, fetchData } = require('./db');
 
 const router = express.Router();
 
@@ -20,21 +20,29 @@ const formValidation = [
   check('email')
     .isEmail()
     .withMessage('Netfang verður að vera netfang'),
-    
-  // sanitize('phone').trim().toInt(),
+  /*
   check('phone')
-    .isInt({ min: 7, max: 7 })
+    .isInt({ min: 6, max: 7 })
     .withMessage('Símanúmer verður að vera sjö stafa íslenskt símanúmer'),
+    */
 
   check('text')
     .isLength({ min: 100 })
     .withMessage('Kynning skal vera a.m.k. 100 stafir'),
+];
 
-  // sanitize('name').trim(),
+const formSanitize = [
+  sanitize('name')
+    .trim()
+    .escape(),
+  sanitize('email')
+    .normalizeEmail(),
+  sanitize('phone')
+    //blacklist('-')
+    .toInt(),
 ];
 
 function form(req, res) {
-  /*
   const data = {
     name: '',
     email: '',
@@ -42,18 +50,14 @@ function form(req, res) {
     text: '',
     job: '',
   };
-  */
-  const { body: { name , email, phone, text, job } = {} } = req;
-
+  const { body: { name, email, phone, text, job } = {} } = req;
 
   const errors = [];
-  res.render('index', { errors, name: '', email: '', phone: '', text: '', title: 'Umsókn' });
+  res.render('index', { errors, data, title: 'Umsókn' });
 }
 
 
 async function formPost(req, res) {
-
-  console.log('Fer inn í formPost');
   // fá öll gögn úr formi
   const {
     body: {
@@ -92,12 +96,22 @@ function thanks(req, res) {
   return res.render('thanks', { title: 'Takk fyrir' });
 }
 
+async function applications(req, res) {
+  const applications = await fetchData();
+  console.log(applications);
+
+
+  return res.render('applications', { applications, title: 'Umsóknarlisti' });
+  console.log('Klára að senda gögn');
+}
+
 function catchErrors(fn) {
   return (req, res, next) => fn(req, res, next).catch(next);
 }
 
 router.get('/', form);
-router.post('/', formValidation, catchErrors(formPost));
+router.post('/', formValidation, formSanitize, catchErrors(formPost));
 router.get('/thanks', thanks);
+router.get('/applications', applications);
 
 module.exports = router;
