@@ -21,7 +21,7 @@ const formValidation = [
     .isEmail()
     .withMessage('Netfang verður að vera netfang'),
     
-  sanitize('phone').trim().toInt(), 
+  sanitize('phone').trim().toInt(),
   check('phone')
     .isInt({ min: 7, max: 7 })
     .withMessage('Símanúmer verður að vera sjö stafa íslenskt símanúmer'),
@@ -41,7 +41,7 @@ function form(req, res) {
     text: '',
     job: '',
   };
-  res.render('/', { data, title: 'Umsókn' });
+  res.render('index', { data, title: 'Umsókn' });
 }
 
 async function formPost(req, res) {
