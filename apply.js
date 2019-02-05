@@ -21,7 +21,7 @@ const formValidation = [
     .isEmail()
     .withMessage('Netfang verður að vera netfang'),
     
-  sanitize('phone').trim().toInt(),
+  // sanitize('phone').trim().toInt(),
   check('phone')
     .isInt({ min: 7, max: 7 })
     .withMessage('Símanúmer verður að vera sjö stafa íslenskt símanúmer'),
@@ -30,10 +30,11 @@ const formValidation = [
     .isLength({ min: 100 })
     .withMessage('Kynning skal vera a.m.k. 100 stafir'),
 
-  sanitize('name').trim(),
+  // sanitize('name').trim(),
 ];
 
 function form(req, res) {
+  /*
   const data = {
     name: '',
     email: '',
@@ -41,10 +42,18 @@ function form(req, res) {
     text: '',
     job: '',
   };
-  res.render('index', { data, title: 'Umsókn' });
+  */
+  const { body: { name , email, phone, text, job } = {} } = req;
+
+
+  const errors = [];
+  res.render('index', { errors, name: '', email: '', phone: '', text: '', title: 'Umsókn' });
 }
 
+
 async function formPost(req, res) {
+
+  console.log('Fer inn í formPost');
   // fá öll gögn úr formi
   const {
     body: {
@@ -67,9 +76,11 @@ async function formPost(req, res) {
 
   const validation = validationResult(req);
 
+
   if (!validation.isEmpty()) {
+    console.log('kemst hingað');
     const errors = validation.array();
-    return res.render('form', { errors, data, title: 'Form' });
+    return res.render('index', { errors, data, title: 'Umsókn' });
   }
 
   await saveToDb(data);

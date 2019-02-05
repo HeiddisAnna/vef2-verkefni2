@@ -1,23 +1,29 @@
 <h1>Atvinnuumsókn</h1>
-<form methood="post" action="/apply">
+<form methood="post" action="/">
   <label for="name">Nafn</label>
-  <input id="name" name="name" value="<%= data.name %>">
+  <input id="name" name="name" value="<%= name %>">
 
   <label for="email">Netfang</label>
-  <input id="email" name="email" value="<%= data.email %>">
+  <input id="email" name="email" value="<%= email %>">
 
   <label for="phone">Sími</label>
-  <input id="phone" name="phone" value="<%= data.phone %>">
+  <input id="phone" name="phone" value="<%= phone %>">
 
   <label for="text">Kynning á þér</label>
-  <input id="text" name="text" value="<%= data.text %>">
+  <input id="text" name="text" value="<%= text %>">
 
   <h2>Starf sem sótt er um</h2>
-  <form action="">
-    <input type="radio" name="programmer" value="job"> Forritari
-    <input type="radio" name="designer" value="job"> Hönnuður
-    <input type="radio" name="project__manager" value="job"> Verkefnastjóri
-  </form>
+  
+  <input type="radio" name="programmer" value="job"> Forritari
+  <input type="radio" name="designer" value="job"> Hönnuður
+  <input type="radio" name="project__manager" value="job"> Verkefnastjóri
+
 
   <button>Senda umsókn</button>
+
+  <ul>
+    <% errors.forEach((error) => { %>
+      <li><%= error %></li>
+    <% }) %>
+  </ul>
 </form>
