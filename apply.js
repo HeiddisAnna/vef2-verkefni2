@@ -96,12 +96,6 @@ function thanks(req, res) {
   return res.render('thanks', { title: 'Takk fyrir' });
 }
 
-async function applications(req, res) {
-  const applications = await fetchData();
-
-  return res.render('applications', { applications, title: 'Umsóknarlisti' });
-}
-
 function catchErrors(fn) {
   return (req, res, next) => fn(req, res, next).catch(next);
 }
@@ -109,6 +103,5 @@ function catchErrors(fn) {
 router.get('/', form);
 router.post('/', formValidation, formSanitize, catchErrors(formPost));
 router.get('/thanks', thanks);
-router.get('/applications', applications);
 
 module.exports = router;

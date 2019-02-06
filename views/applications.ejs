@@ -10,7 +10,7 @@
     <p>Umsókn send: <%= application.created %> </p>
     <p class="description"> <%= application.text %> </p>
 
-    <form method="post" action="/update" id="update">
+    <form method="get" action="/applications" id=<% application.id %> >
       <button>Vinna umsókn</button>
     
     </form>

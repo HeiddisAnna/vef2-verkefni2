@@ -16,11 +16,13 @@ async function applications(req, res) {
 
 async function deleteApplication(req, res) {
   console.log('fer hingað inn');
+  const deletedList = await runQuery('DELETE FROM applications WHERE id=3');
   const applications = await fetchData();
 
   return res.render('applications', { applications, title: 'Umsóknarlisti' });
   
 }
+
 
 router.post('/applications', catchErrors(deleteApplication));
 router.get('/applications', applications);
