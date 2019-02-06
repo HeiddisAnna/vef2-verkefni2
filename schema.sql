@@ -5,7 +5,7 @@ CREATE TABLE applications (
   phone int, 
   text text, 
   job varchar(64), 
-  processed: boolean default false,
+  processed boolean default false,
   Created timestamp with time zone not null default current_timestamp,
   Updated timestamp with time zone not null default current_timestamp
 );
