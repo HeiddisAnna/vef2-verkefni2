@@ -3,7 +3,6 @@ const express = require('express');
 const { check, validationResult } = require('express-validator/check');
 const { sanitize } = require('express-validator/filter');
 
-// const { catchErrors } = require('./utils');
 const { saveToDb, fetchData } = require('./db');
 
 const router = express.Router();
@@ -82,7 +81,6 @@ async function formPost(req, res) {
 
 
   if (!validation.isEmpty()) {
-    console.log('kemst hingað');
     const errors = validation.array();
     return res.render('index', { errors, data, title: 'Umsókn' });
   }

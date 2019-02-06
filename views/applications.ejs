@@ -10,12 +10,15 @@
     <p>Umsókn send: <%= application.created %> </p>
     <p class="description"> <%= application.text %> </p>
 
-    <form method="get" action="/applications" id=<% application.id %> >
+    <form method="post" action="/applications/processed" id=<% application.id %> >
       <button>Vinna umsókn</button>
+      <% if(application.processed == true){ %>
+        <p> ✔ Umsókn unnin <%= application.updated %></p>
+      <% } %>
     
     </form>
   
-    <form method="post" action="/applications" id= <% application.id %>>
+    <form method="post" action="/applications/remove" id= <% application.id %>>
       <button>Eyða umsókn</button>
     </form>
   <% }) %>
