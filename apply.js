@@ -98,11 +98,8 @@ function thanks(req, res) {
 
 async function applications(req, res) {
   const applications = await fetchData();
-  console.log(applications);
-
 
   return res.render('applications', { applications, title: 'Umsóknarlisti' });
-  console.log('Klára að senda gögn');
 }
 
 function catchErrors(fn) {

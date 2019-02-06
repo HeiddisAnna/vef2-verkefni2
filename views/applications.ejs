@@ -9,7 +9,18 @@
     <p>Sími: <%= application.phone %> </p>
     <p>Umsókn send: <%= application.created %> </p>
     <p class="description"> <%= application.text %> </p>
+
+    <form method="post" action="/update" id="update">
+      <button>Vinna umsókn</button>
+    
+    </form>
+  
+    <form method="post" action="/applications" id= <% application.id %>>
+      <button>Eyða umsókn</button>
+    </form>
   <% }) %>
-</div>
+  
+
+  </div>
 
 <%- include('footer') -%>

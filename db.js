@@ -21,13 +21,12 @@ async function saveToDb(data) {
 }
 
 async function fetchData() {
-  console.log('inni í fetchData');
   const client = new Client({ connectionString });
   await client.connect();
   
 
   try {
-    const result = await client.query('SELECT * FROM applications');
+    const result = await client.query('SELECT * FROM applications ORDER BY id');
 
     const { rows } = result;
     return rows;
