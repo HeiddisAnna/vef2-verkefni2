@@ -4,7 +4,11 @@
 
 <div>
   <% applications.forEach((application) => { %>
-    <p> Þessi umsókn </p>
+    <h2> <%= application.name %> </h2>
+    <p class="application__email"> <%= application.email %> </p>
+    <p>Sími: <%= application.phone %> </p>
+    <p>Umsókn send: <%= application.created %> </p>
+    <p class="description"> <%= application.text %> </p>
   <% }) %>
 </div>
 

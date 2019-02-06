@@ -11,6 +11,57 @@
 
 html {
   box-sizing: border-box;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 16px;
 }
 
-/* todo útfæra útlit */
+h1, h2 {
+  font-family: 'Source Sans Pro', sans-serif;
+  font-style: bold;
+}
+
+h1 {
+  font-size: 3rem; 
+}
+h2 {
+  font-size: 1.5rem;
+  padding-top: 24px;
+}
+
+.content {
+  max-width: 1200px;
+  margin: 0 auto; }
+  @media (max-width: 1199px) {
+    .content {
+      padding-right: 20px;
+      padding-left: 20px; } }
+
+.row {
+  display: flex;
+  flex-direction: column; 
+}
+
+form {
+  padding: 8px;
+}
+
+input {
+  border-color: #888;
+  border-radius: 5px;
+  border-style: solid;
+  border-width: 1.5px;
+}
+
+.col {
+  padding-top: 24px;
+  display: flex; 
+  flex-direction: column;
+}
+
+#text {
+  min-height: 48px;
+}
+
+
+
+

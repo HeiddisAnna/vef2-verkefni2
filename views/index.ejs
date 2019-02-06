@@ -1,33 +1,46 @@
 <%- include('header') -%>
+<div class="content">
+  <h1>Atvinnuumsókn</h1>
+  <form method="post" action="/" class="row">
+    <div class="col">
+      <label for="name">Nafn</label>
+      <input id="name" name="name" value="<%= data.name %>">
+    </div>
+    <div class="col">
+      <label for="email">Netfang</label>
+      <input id="email" name="email" value="<%= data.email %>">
+    </div>
+    <div class="col">
+      <label for="phone">Sími</label>
+      <input id="phone" name="phone" value="<%= data.phone %>">
+    </div>
+    <div class="col">
+      <label for="text">Kynning á þér</label>
+      <input type="text" id="text" name="text" value="<%= data.text %>">
+    </div>
+    <div class="col">
+      <h2>Starf sem sótt er um</h2>
+    </div>
+    <div class="col">
+      <label><input type="radio" name="job" value="Forritari"> Forritari </label>
+    </div>
+    <div class="col">
+      <label><input type="radio" name="job" value="Hönnuður"> Hönnuður</label>
+    </div>
+    <div class="col">
+      <label><input type="radio" name="job" value="Verkefnastjóri"> Verkefnastjóri </label>
+    </div>
+    <div class="col">
+      <button>Senda umsókn</button>
+    </div>
 
-<h1>Atvinnuumsókn</h1>
-<form method="post" action="/">
-  <label for="name">Nafn</label>
-  <input id="name" name="name" value="<%= data.name %>">
-
-  <label for="email">Netfang</label>
-  <input id="email" name="email" value="<%= data.email %>">
-
-  <label for="phone">Sími</label>
-  <input id="phone" name="phone" value="<%= data.phone %>">
-
-  <label for="text">Kynning á þér</label>
-  <input id="text" name="text" value="<%= data.text %>">
-
-  <h2>Starf sem sótt er um</h2>
-  
-  <label><input type="radio" name="programmer" value="job"> Forritari </label>
-  <label><input type="radio" name="designer" value="job"> Hönnuður</label>
-  <label><input type="radio" name="project__manager" value="job"> Verkefnastjóri </label>
-
-
-  <button>Senda umsókn</button>
-
-  <ul>
-    <% errors.forEach((error) => { %>
-      <li><%= error.msg %></li>
-    <% }) %>
-  </ul>
-</form>
-
+    <div class="col">
+      <ul>
+        <% errors.forEach((error) => { %>
+          <li><%= error.msg %></li>
+        <% }) %>
+      </ul>
+    </div>
+  </form>
+</div>
 <%- include('footer') -%>
