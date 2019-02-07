@@ -28,9 +28,8 @@ function errorHandler(error, req, res, next) { // eslint-disable-line
 
 function checkInvalid(category, errorMessages) {
   errorTrue = '';
-  console.log(errorMessages);
   errorMessages.forEach((error) => {
-    if(category == error.param) {
+    if(category === error.param) {
       errorTrue = 'invalid';
     }
   });
