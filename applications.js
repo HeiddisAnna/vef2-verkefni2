@@ -10,30 +10,30 @@ function catchErrors(fn) {
 
 async function applications(req, res) {
   const applications = await fetchData();
-  console.log(applications);
+  //console.log(applications);
   
   return res.render('applications', { applications, title: 'Umsóknarlisti' });
 }
 
 async function deleteApplication(req, res) {
-  console.log(req.params);
-  const deletedList = await runQuery('DELETE FROM applications WHERE id=2');
-  // const deletedList = await runQuery('DELETE FROM applications WHERE id=${id}');
+  console.log(req.params.id);
+  const thisID = req.params.id;
+  const deletedList = await runQuery('DELETE FROM applications WHERE id=' +thisID);
 
   return res.redirect('/applications');
 }
 
 async function processApplication(req, res) {
   console.log('fer inn í processApplication');
-  console.log(req.params);
-  const updateApplication = await runQuery('UPDATE applications SET processed = TRUE WHERE id = 4');
+  console.log(req.params.id);
+  const thisID = req.params.id;
+  const updateApplication = await runQuery('UPDATE applications SET processed = TRUE WHERE id =' +thisID);
 
   return res.redirect('/applications');
 }
 
-
-router.post('/applications/remove', catchErrors(deleteApplication));
-router.post('/applications/processed', catchErrors(processApplication));
+router.post('/applications/remove/:id', catchErrors(deleteApplication));
+router.post('/applications/processed/:id', catchErrors(processApplication));
 router.get('/applications', applications);
 
 
