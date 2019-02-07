@@ -3,7 +3,7 @@ const express = require('express');
 const { check, validationResult } = require('express-validator/check');
 const { sanitize } = require('express-validator/filter');
 
-const { saveToDb, fetchData } = require('./db');
+const { saveToDb } = require('./db');
 
 const router = express.Router();
 
@@ -28,6 +28,9 @@ const formValidation = [
   check('text')
     .isLength({ min: 100 })
     .withMessage('Kynning skal vera a.m.k. 100 stafir'),
+
+  check('job').isLength({ min: 1 }).withMessage('Velja verður starf'),
+
 ];
 
 const formSanitize = [

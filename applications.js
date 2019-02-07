@@ -10,13 +10,10 @@ function catchErrors(fn) {
 
 async function applications(req, res) {
   const applications = await fetchData();
-  //console.log(applications);
-  
   return res.render('applications', { applications, title: 'Umsóknarlisti' });
 }
 
 async function deleteApplication(req, res) {
-  console.log(req.params.id);
   const thisID = req.params.id;
   const deletedList = await runQuery('DELETE FROM applications WHERE id=' +thisID);
 
@@ -24,8 +21,6 @@ async function deleteApplication(req, res) {
 }
 
 async function processApplication(req, res) {
-  console.log('fer inn í processApplication');
-  console.log(req.params.id);
   const thisID = req.params.id;
   const updateApplication = await runQuery('UPDATE applications SET processed = TRUE WHERE id =' +thisID);
 
@@ -35,6 +30,5 @@ async function processApplication(req, res) {
 router.post('/applications/remove/:id', catchErrors(deleteApplication));
 router.post('/applications/processed/:id', catchErrors(processApplication));
 router.get('/applications', applications);
-
 
 module.exports = router;
