@@ -4,6 +4,7 @@ const path = require('path');
 const express = require('express');
 const apply = require('./apply');
 const applications = require('./applications');
+const content = require('./content');
 
 const app = express();
 
@@ -25,6 +26,8 @@ function errorHandler(error, req, res, next) { // eslint-disable-line
   console.error(error);
   res.status(500).render('error', { title: 'Villa', error });
 }
+
+app.locals.checkError = content;
 
 app.use(notFoundHandler);
 app.use(errorHandler);

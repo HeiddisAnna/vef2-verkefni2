@@ -4,11 +4,11 @@
   <form method="post" action="/" class="row">
     <div class="col">
       <label for="name">Nafn</label>
-      <input id="name" name="name" value="<%= data.name %>">
+      <input class="<%= locals.checkError('name', errors)) ? 'invalid' : '' %>" id="name" name="name" value="<%= data.name %>">
     </div>
     <div class="col">
       <label for="email">Netfang</label>
-      <input id="email" name="email" value="<%= data.email %>">
+      <input  id="email" name="email" value="<%= data.email %>">
     </div>
     <div class="col">
       <label for="phone">Sími</label>
