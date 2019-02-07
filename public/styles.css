@@ -76,14 +76,17 @@ button {
   border-style: solid;
   background-color: white;
   transition: color 300ms ease-in;
+  margin:auto;
 }
 button:hover {
   background-color: #bbb;
 }
 
-.redError {
+.invalid {
   background-color: #fbb;
 }
+
+
 
 
 

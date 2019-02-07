@@ -4,31 +4,31 @@
   <form method="post" action="/" class="row">
     <div class="col">
       <label for="name">Nafn</label>
-      <input class="<%= locals.isInvalid('email', errors) ?  'invalid' : '' %>"> id="name" name="name" value="<%= data.name %>">
+      <input class="<%= locals.checkInvalid('name', errors) ?  'invalid' : '' %>" id="name" name="name" value="<%= data.name %>">
     </div>
     <div class="col">
       <label for="email">Netfang</label>
-      <input  id="email" name="email" value="<%= data.email %>">
+      <input class="<%= locals.checkInvalid('email', errors) ?  'invalid' : '' %>"  id="email" name="email" value="<%= data.email %>">
     </div>
     <div class="col">
       <label for="phone">Sími</label>
-      <input id="phone" name="phone" value="<%= data.phone %>">
+      <input class="<%= locals.checkInvalid('phone', errors) ?  'invalid' : '' %>" id="phone" name="phone" value="<%= data.phone %>">
     </div>
     <div class="col">
       <label for="text">Kynning á þér</label>
-      <input type="text" id="text" name="text" value="<%= data.text %>">
+      <input class="<%= locals.checkInvalid('text', errors) ?  'invalid' : '' %>" type="text" id="text" name="text" value="<%= data.text %>">
     </div>
     <div class="col">
       <h2>Starf sem sótt er um</h2>
     </div>
     <div class="col">
-      <label><input type="radio" name="job" value="forritari"> Forritari </label>
+      <label><input class="<%= locals.checkInvalid('job', errors) ?  'invalid' : '' %>" type="radio" name="job" value="forritari"> Forritari </label>
     </div>
     <div class="col">
-      <label><input type="radio" name="job" value="hönnuður"> Hönnuður</label>
+      <label><input class="<%= locals.checkInvalid('job', errors) ?  'invalid' : '' %>" type="radio" name="job" value="hönnuður"> Hönnuður</label>
     </div>
     <div class="col">
-      <label><input type="radio" name="job" value="verkefnastjóri"> Verkefnastjóri </label>
+      <label><input class="<%= locals.checkInvalid('job', errors) ?  'invalid' : '' %>" type="radio" name="job" value="verkefnastjóri"> Verkefnastjóri </label>
     </div>
     <div class="col">
       <button>Senda umsókn</button>

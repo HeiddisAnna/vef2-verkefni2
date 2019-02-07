@@ -4,7 +4,6 @@ const path = require('path');
 const express = require('express');
 const apply = require('./apply');
 const applications = require('./applications');
-//const content = require('./content');
 
 const app = express();
 
@@ -29,13 +28,17 @@ function errorHandler(error, req, res, next) { // eslint-disable-line
 
 function checkInvalid(category, errorMessages) {
 
-  console.log('Kemmst inn í fallið');
+  errorMessages.forEach((error) => {
+    if(category == error.param){
+      console.log('Skila invalid fyrir ' + category );
+      return 'invalid';
+    }
+  });
 
-  return 'invalid';
+  // return '';
 }
 
-// app.locals.checkError = content;
-app.locals.isInvalid = checkInvalid;
+app.locals.checkInvalid = checkInvalid;
 
 app.use(notFoundHandler);
 app.use(errorHandler);
