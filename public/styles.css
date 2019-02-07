@@ -15,6 +15,11 @@ html {
   font-size: 16px;
 }
 
+main{
+  margin-bottom: 32px;
+  margin-top : 32px;
+}
+
 h1, h2 {
   font-family: 'Source Sans Pro', sans-serif;
   font-style: bold;
@@ -88,6 +93,7 @@ button:hover {
 
 .invalid {
   background-color: #fbb;
+  border-color: #855;
 }
 
 @media (min-width: 400px) {

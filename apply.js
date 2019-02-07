@@ -51,7 +51,7 @@ function form(req, res) {
     text: '',
     job: '',
   };
-  const { body: { name, email, phone, text, job } = {} } = req;
+  const { body: { name, email, phone, text, job } = {} } = req; // eslint-disable-line
 
   const errors = [];
   res.render('index', { errors, data, title: 'Umsókn' });

@@ -9,20 +9,20 @@ function catchErrors(fn) {
 }
 
 async function applications(req, res) {
-  const applications = await fetchData();
+  const applications = await fetchData(); // eslint-disable-line
   return res.render('applications', { applications, title: 'Umsóknarlisti' });
 }
 
 async function deleteApplication(req, res) {
   const thisID = req.params.id;
-  const deletedList = await runQuery('DELETE FROM applications WHERE id=' +thisID);
+  const deletedList = await runQuery('DELETE FROM applications WHERE id=' +thisID); // eslint-disable-line
 
   return res.redirect('/applications');
 }
 
 async function processApplication(req, res) {
   const thisID = req.params.id;
-  const updateApplication = await runQuery('UPDATE applications SET processed = TRUE WHERE id =' +thisID);
+  const updateApplication = await runQuery('UPDATE applications SET processed = TRUE WHERE id =' +thisID); // eslint-disable-line
 
   return res.redirect('/applications');
 }

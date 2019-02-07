@@ -12,7 +12,6 @@ app.set('view engine', 'ejs');
 
 app.use(express.static(path.join(__dirname, 'public')));
 
-/* todo aðrar stillingar á express appi */
 app.use(express.urlencoded({ extended: true }));
 app.use('/', apply);
 app.use('/', applications);
@@ -27,13 +26,13 @@ function errorHandler(error, req, res, next) { // eslint-disable-line
 }
 
 function checkInvalid(category, errorMessages) {
-  errorTrue = '';
+  errorTrue = '';   // eslint-disable-line 
   errorMessages.forEach((error) => {
-    if(category === error.param) {
-      errorTrue = 'invalid';
+    if (category === error.param) {
+      errorTrue = 'invalid'; // eslint-disable-line
     }
   });
-  return errorTrue;
+  return errorTrue; // eslint-disable-line
 }
 
 app.locals.checkInvalid = checkInvalid;
