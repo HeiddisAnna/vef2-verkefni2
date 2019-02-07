@@ -4,7 +4,7 @@
   <form method="post" action="/" class="row">
     <div class="col">
       <label for="name">Nafn</label>
-      <input class="<%= locals.checkError('name', errors)) ? 'invalid' : '' %>" id="name" name="name" value="<%= data.name %>">
+      <input class="<%= locals.isInvalid('email', errors) ?  'invalid' : '' %>"> id="name" name="name" value="<%= data.name %>">
     </div>
     <div class="col">
       <label for="email">Netfang</label>
