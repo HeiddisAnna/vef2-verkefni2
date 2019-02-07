@@ -52,7 +52,7 @@ input {
   border-width: 1.5px;
 }
 
-.col {
+.col, .button__content {
   padding-top: 24px;
   display: flex; 
   flex-direction: column;
@@ -61,6 +61,27 @@ input {
 #text {
   min-height: 48px;
 }
+
+.button__content {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+button {
+  padding: 8px;
+  border-width: 1.5px;
+  border-color: #888;
+  border-radius: 5px;
+  border-style: solid;
+  background-color: white;
+  transition: color 300ms ease-in;
+}
+button:hover {
+  background-color: #bbb;
+}
+
+
 
 
 

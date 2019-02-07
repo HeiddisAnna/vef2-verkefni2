@@ -1,29 +1,36 @@
 <%- include('header') -%>
+<div class="content">
+  <h1>Atvinnuumsóknir</h1>
 
-<h1>Atvinnuumsóknir</h1>
+  <div class="row">
+    <% applications.forEach((application) => { %>
+      <div class="col">
+        <h2> <%= application.name %> </h2>
+      </div>
+      <div class="col">
+        <p class="application__email"> <%= application.email %> </p>
+        <p>Sími: <%= application.phone %> </p>
+        <p>Umsókn send: <%= application.created %> </p>
+      </div>
+      <div class="col">
+        <p class="description"> <%= application.text %> </p>
+      </div>
 
-<div>
-  <% applications.forEach((application) => { %>
-    <h2> <%= application.name %> </h2>
-    <p class="application__email"> <%= application.email %> </p>
-    <p>Sími: <%= application.phone %> </p>
-    <p>Umsókn send: <%= application.created %> </p>
-    <p class="description"> <%= application.text %> </p>
-
-    <form method="post" action=/applications/processed/<%= application.id %>>
-      <button>Vinna umsókn</button>
-      <% if(application.processed == true){ %>
-        <p> ✔ Umsókn unnin <%= application.updated %></p>
-      <% } %>
-    
-    </form>
-  
-    <form method="post" action=/applications/remove/<%= application.id %>>
-      <button>Eyða umsókn</button>
-    </form>
-  <% }) %>
-  
-
+      <div class="button__content">
+        <form method="post" action=/applications/processed/<%= application.id %>>
+          <% if(application.processed == true){ %>
+            <p> ✔ Umsókn unnin <%= application.updated %></p>
+          <% } else { %>
+            <button>Vinna umsókn</button>
+          <% } %> 
+        </form>
+      
+        <form method="post" action=/applications/remove/<%= application.id %>>
+          <button>Eyða umsókn</button>
+        </form>
+      </div>
+    <% }) %>
   </div>
+</div>
 
 <%- include('footer') -%>

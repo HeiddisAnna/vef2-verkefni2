@@ -19,18 +19,14 @@ const formValidation = [
   check('email')
     .isEmail()
     .withMessage('Netfang verður að vera netfang'),
-  /*
-  check('phone')
-    .isInt({ min: 6, max: 7 })
-    .withMessage('Símanúmer verður að vera sjö stafa íslenskt símanúmer'),
-    */
 
   check('text')
     .isLength({ min: 100 })
     .withMessage('Kynning skal vera a.m.k. 100 stafir'),
 
-  check('job').isLength({ min: 1 }).withMessage('Velja verður starf'),
-
+  check('job')
+    .isLength({ min: 1 })
+    .withMessage('Velja verður starf'),
 ];
 
 const formSanitize = [
@@ -40,8 +36,8 @@ const formSanitize = [
   sanitize('email')
     .normalizeEmail(),
   sanitize('phone')
-    //blacklist('-')
-    .toInt(),
+    .blacklist('-')
+    .toInt({ max: 8 }),
 ];
 
 function form(req, res) {
