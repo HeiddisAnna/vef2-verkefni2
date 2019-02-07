@@ -30,21 +30,21 @@
     <div class="col">
       <label class="<%= locals.checkInvalid('job', errors) ?  'invalid' : '' %>"><input type="radio" name="job" value="verkefnastjóri"> Verkefnastjóri </label>
     </div>
+    
+    <div class="col">
+        <% if(errors.length !== 0) { %>
+          <h2 class="col">Vandræði við að senda umsókn: </h2>
+        <% } %>
+  
+        <ul class="col">
+          <% errors.forEach((error) => { %>
+            <li><%= error.msg %></li>
+          <% }) %>
+        </ul>
+      </div>
+
     <div class="col">
       <button>Senda umsókn</button>
-    </div>
-
-    <div class="col">
-
-      <% if(errors.length !== 0) { %>
-        <h2>Vandræði við að senda umsókn</h2>
-      <% } %>
-
-      <ul>
-        <% errors.forEach((error) => { %>
-          <li><%= error.msg %></li>
-        <% }) %>
-      </ul>
     </div>
   </form>
 </div>

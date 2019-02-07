@@ -32,6 +32,12 @@ h2 {
   font-size: 1.5rem;
   padding-top: 24px;
 }
+label {
+  font-size: 1.375rem;
+}
+input, p, button {
+  font-size: 1rem;
+}
 
 .content {
   max-width: 1200px;
