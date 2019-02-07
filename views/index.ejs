@@ -2,20 +2,20 @@
 <div class="content">
   <h1>Atvinnuumsókn</h1>
   <form method="post" action="/" class="row">
-    <div class="col">
-      <label for="name">Nafn</label>
+    <div class="col__apply">
+      <label class="apply__label" for="name">Nafn</label>
       <input class="<%= locals.checkInvalid('name', errors) ?  'invalid' : '' %>" id="name" name="name" value="<%= data.name %>">
     </div>
-    <div class="col">
-      <label for="email">Netfang</label>
+    <div class="col__apply">
+      <label class="apply__label" for="email">Netfang</label>
       <input class="<%= locals.checkInvalid('email', errors) ?  'invalid' : '' %>"  id="email" name="email" value="<%= data.email %>">
     </div>
-    <div class="col">
-      <label for="phone">Sími</label>
+    <div class="col__apply">
+      <label class="apply__label" for="phone">Sími</label>
       <input class="<%= locals.checkInvalid('phone', errors) ?  'invalid' : '' %>" id="phone" name="phone" value="<%= data.phone %>">
     </div>
-    <div class="col">
-      <label for="text">Kynning á þér</label>
+    <div class="col__apply">
+      <label class="apply__label" for="text">Kynning á þér</label>
       <input class="<%= locals.checkInvalid('text', errors) ?  'invalid' : '' %>" type="text" id="text" name="text" value="<%= data.text %>">
     </div>
     <div class="col">
