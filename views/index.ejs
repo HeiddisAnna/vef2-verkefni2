@@ -19,7 +19,7 @@
       <input class="<%= locals.checkInvalid('text', errors) ?  'invalid' : '' %>" type="text" id="text" name="text" value="<%= data.text %>">
     </div>
     <div class="col">
-      <h2>Starf sem sótt er um</h2>
+      <h2>Starf sem sótt er um:</h2>
     </div>
     <div class="col">
       <label class="<%= locals.checkInvalid('job', errors) ?  'invalid' : '' %>"><input type="radio" name="job" value="forritari"> Forritari </label>
@@ -31,17 +31,16 @@
       <label class="<%= locals.checkInvalid('job', errors) ?  'invalid' : '' %>"><input type="radio" name="job" value="verkefnastjóri"> Verkefnastjóri </label>
     </div>
     
-    <div class="col">
-        <% if(errors.length !== 0) { %>
-          <h2 class="col">Vandræði við að senda umsókn: </h2>
-        <% } %>
+    <% if(errors.length !== 0) { %>
+      <h2 class="col">Vandræði við að senda umsókn: </h2>
+    <% } %>
   
-        <ul class="col">
-          <% errors.forEach((error) => { %>
-            <li><%= error.msg %></li>
-          <% }) %>
-        </ul>
-      </div>
+    <ul class="col">
+      <% errors.forEach((error) => { %>
+        <li><%= error.msg %></li>
+      <% }) %>
+    </ul>
+      
 
     <div class="col">
       <button>Senda umsókn</button>

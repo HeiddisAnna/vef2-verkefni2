@@ -22,7 +22,7 @@ main{
 
 h1, h2 {
   font-family: 'Source Sans Pro', sans-serif;
-  font-style: bold;
+  font-weight: bold;
 }
 
 h1 {
