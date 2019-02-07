@@ -22,19 +22,26 @@
       <h2>Starf sem sótt er um</h2>
     </div>
     <div class="col">
-      <label><input class="<%= locals.checkInvalid('job', errors) ?  'invalid' : '' %>" type="radio" name="job" value="forritari"> Forritari </label>
+      <label class="<%= locals.checkInvalid('job', errors) ?  'invalid' : '' %>"><input type="radio" name="job" value="forritari"> Forritari </label>
     </div>
     <div class="col">
-      <label><input class="<%= locals.checkInvalid('job', errors) ?  'invalid' : '' %>" type="radio" name="job" value="hönnuður"> Hönnuður</label>
+      <label class="<%= locals.checkInvalid('job', errors) ?  'invalid' : '' %>"><input type="radio" name="job" value="hönnuður"> Hönnuður</label>
     </div>
     <div class="col">
-      <label><input class="<%= locals.checkInvalid('job', errors) ?  'invalid' : '' %>" type="radio" name="job" value="verkefnastjóri"> Verkefnastjóri </label>
+      <label class="<%= locals.checkInvalid('job', errors) ?  'invalid' : '' %>"><input type="radio" name="job" value="verkefnastjóri"> Verkefnastjóri </label>
     </div>
     <div class="col">
       <button>Senda umsókn</button>
     </div>
 
     <div class="col">
+
+      <%= errors %>
+
+      <% if(errors.isEmpty) { %>
+        <h2>Vandræði við að senda umsókn</h2>
+      <% } %>
+
       <ul>
         <% errors.forEach((error) => { %>
           <li><%= error.msg %></li>

@@ -20,6 +20,9 @@ const formValidation = [
     .isEmail()
     .withMessage('Netfang verður að vera netfang'),
 
+  check('phone')
+    .matches(/^[1-9]{3}-?[0-9]{4}$/).withMessage('Símanúmer verður að vera sjö tölustafir'),
+
   check('text')
     .isLength({ min: 100 })
     .withMessage('Kynning skal vera a.m.k. 100 stafir'),
